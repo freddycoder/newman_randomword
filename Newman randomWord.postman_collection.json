@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7f707389-36c1-45ac-b4b3-5d5c8df4fe29",
+		"_postman_id": "352fd0db-3e51-4497-90a3-3b971db17e95",
 		"name": "Newman randomWord",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -16,6 +16,138 @@
 							"\r",
 							"for (var i = 0; i < 100; i++) {\r",
 							"    my_array.push(\"{{$randomWord}}\");\r",
+							"}\r",
+							"\r",
+							"pm.variables.set(\"my_array\", JSON.stringify(my_array));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{{my_array}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Send random word array",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{my_array}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 04 Mar 2021 01:14:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=0dbaff95c0ac10b0"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=51c244827e1ed678"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1614820535"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Send random currency array",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var my_array = [];\r",
+							"\r",
+							"for (var i = 0; i < 100; i++) {\r",
+							"    my_array.push(\"{{$randomCurrencyCode}}\");\r",
 							"}\r",
 							"\r",
 							"pm.variables.set(\"my_array\", JSON.stringify(my_array));"
